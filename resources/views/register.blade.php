@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <div class="login-wrapper"  style="display: flex; justify-content: center; align-items: center;">
+    <div class="login-wrapper"  style="display: flex;">
         <p style="color: red;">{{$registererror}}<p>
         <form action="/api/register" method="post" style="text-align: center">
             @csrf
@@ -24,7 +24,11 @@
             <input type="email" name="email" placeholder="Email" required style="width: 210px;"> <br><br>
             <input type="password" name="password" placeholder="Password" required style="width: 210px;"> <br> <br>
             <button type="submit">Register!</button>
-        </form>
+        </form><br>
     </div>
+    <a href="login">Login</a> <br>
+    <a href="/">Go back</a> <br>
+
+
 </body>
 </html>

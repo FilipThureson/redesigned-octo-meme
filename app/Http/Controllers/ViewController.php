@@ -12,7 +12,8 @@ class ViewController extends Controller
     {
         $users = DB::select('select * from users');
 
-        return var_dump($users);
+        return view('welcome');
+
     }
 
     public function login()
@@ -23,4 +24,11 @@ class ViewController extends Controller
     {
         return view("register", ["registererror" =>""]);
     }
+    public function forgotPassword(){
+        return view("forgotpass", ["loginerror" => ""]);
+    }
+    public function resetPassword($token){
+        return view("resetPassword", ["token" => $token]);
+    }
+
 }

@@ -22,4 +22,7 @@ Route::get('/login', [ViewController::class, "login"]);
 
 Route::get('/register', [ViewController::class, "register"]);
 
+Route::get('/forgot/password', [ViewController::class, "forgotPassword"]);
+
+Route::get('/reset/{token}',[ViewController::class, "resetPassword"]);
 

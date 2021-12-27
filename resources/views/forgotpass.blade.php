@@ -15,15 +15,11 @@
 <body>
     <div class="login-wrapper">
         <p style="color: red;">{{$loginerror}}<p>
-        <form action="/api/login/auth" method="post">
+        <form action="/api/forgot/password" method="post">
             @csrf
             <input type="email" name="email" placeholder="Email" required >
-            <input type="password" name="password" placeholder="Password" required >
-            <button type="submit">Login!</button>
+            <button type="submit">Send Email!</button>
         </form>
-        <p>Forgot password? <a href="forgot/password">Click Here</a></p>
-        <p>No account? <a href="register">Click Here</a></p>
-        <a href="/">Go back</a> <br>
     </div>
 </body>
 </html>
