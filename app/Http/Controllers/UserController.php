@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Mail\ForgotPassword;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -37,7 +38,9 @@ class UserController extends Controller
 
         if (Hash::check($inputPassword, $passHashed))
         {
-            return "logged in";
+            $user = DB::table('users')->where('email', $inputEmail)->get();
+            Session::put('user', $user);
+            return redirect('/');
 
         }else{
             return redirect("/login");// view("login", ["loginerror" => "Faulty email or password"]);
@@ -88,6 +91,11 @@ class UserController extends Controller
         //if(DB::table('users')->where('token', $token)){
         //    return "error!";
         //}
+        return redirect('/login');
+    }
+    public function logout()
+    {
+        Session::flush();
         return redirect('/login');
     }
 }

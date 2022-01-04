@@ -4,16 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class ViewController extends Controller
 {
 
     public function index()
     {
-        $users = DB::select('select * from users');
-
         return view('welcome');
 
+    }
+
+    public function upload()
+    {
+        return view('upload');
     }
 
     public function login()
@@ -24,10 +30,12 @@ class ViewController extends Controller
     {
         return view("register", ["registererror" =>""]);
     }
-    public function forgotPassword(){
+    public function forgotPassword()
+    {
         return view("forgotpass", ["loginerror" => ""]);
     }
-    public function resetPassword($token){
+    public function resetPassword($token)
+    {
         return view("resetPassword", ["token" => $token]);
     }
 

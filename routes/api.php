@@ -28,4 +28,7 @@ Route::post('/forgot/password', [UserController::class, 'forgotPassword']);
 
 Route::post('/reset/password', [UserController::class, 'resetPassword']);
 
+Route::post('/logout', [UserController::class, 'logout']);
+
+
 

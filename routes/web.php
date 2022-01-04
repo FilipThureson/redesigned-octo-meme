@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
-
+use App\Http\Middleware\Isloggedin;
+use App\Http\Middleware\IsNotloggedin;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,22 @@ use App\Http\Controllers\ViewController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware([Isloggedin::class])->group(function(){
 
-Route::get('/', [ViewController::class, "index"]);
+    Route::get('/', [ViewController::class, "index"]);
 
-Route::get('/login', [ViewController::class, "login"]);
+    Route::get('/upload', [ViewController::class, 'upload']);
 
-Route::get('/register', [ViewController::class, "register"]);
+});
 
-Route::get('/forgot/password', [ViewController::class, "forgotPassword"]);
+Route::middleware([IsNotloggedin::class])->group(function(){
 
-Route::get('/reset/{token}',[ViewController::class, "resetPassword"]);
+    Route::get('/login', [ViewController::class, "login"]);
 
+    Route::get('/register', [ViewController::class, "register"]);
+
+    Route::get('/forgot/password', [ViewController::class, "forgotPassword"]);
+
+    Route::get('/reset/{token}',[ViewController::class, "resetPassword"]);
+
+});
