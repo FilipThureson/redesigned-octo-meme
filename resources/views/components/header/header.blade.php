@@ -1,6 +1,6 @@
 <div id="header">
     <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-    <a href="/"><h1 id="title">CodeGram</h1></a>
+    <a href="/"><h1 id="title">TweetGram</h1></a>
     <nav>
         <ul>
             <li class="navLinks" id="upload">

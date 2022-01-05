@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -18,7 +17,7 @@ class ViewController extends Controller
     }
 
     public function profile($id){
-        return view('profile');
+        return view('profile', ['id' => $id]);
     }
 
     public function upload()
