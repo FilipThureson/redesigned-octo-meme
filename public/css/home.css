@@ -51,3 +51,7 @@ main{
 .bottom-row span svg{
     cursor: pointer;
 }
+.caption{
+    font-size: 1.25rem;
+    margin: 10px;
+}

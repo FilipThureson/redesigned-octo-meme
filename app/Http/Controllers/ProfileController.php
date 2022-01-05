@@ -16,7 +16,7 @@ class ProfileController extends Controller
         if(count(DB::table('user-follow')->where('follow_id', $id)->where('user_id', Session::get('user')[0]->id)->get())==1){
             $isFollowing = true;
         }
-        $posts = DB::table('posts')->where('user_id', $id)->get();
+        $posts = DB::table('posts')->where('user_id', $id)->orderByDesc('uploaded_at')->get();
         $data = [
             'user' => DB::table('users')->where('id', $id)->get(),
             'posts' => $posts,

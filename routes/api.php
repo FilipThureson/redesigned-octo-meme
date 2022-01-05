@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
@@ -33,6 +34,8 @@ Route::post('/upload', [PostsController::class, 'upload']);
 Route::post('/profile/{id}', [ProfileController::class, 'index']);
 
 Route::post('/profile/{id}/follow', [ProfileController::class, 'follow']);
+
+Route::post('/feed', [FeedController::class, 'index']);
 
 
 
