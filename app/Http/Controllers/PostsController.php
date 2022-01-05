@@ -28,4 +28,23 @@ class PostsController extends Controller
 
         return redirect('/');
     }
+    public function like($id)
+    {
+        $likes = DB::table('user-like')
+            ->where('post_like_id', "=" ,  $id )
+            ->where('user_like_id', "=" ,Session::get('user')[0]->id)
+            ->get();
+        if(count($likes) == 1){
+            DB::table('user-like')
+            ->where('post_like_id', "=" ,  $id )
+            ->where('user_like_id', "=" ,Session::get('user')[0]->id)
+            ->delete();
+            DB::table('posts')->where('p_id', '=', $id)->update(['likes' => DB::raw('likes - 1')]);
+            return ['status' =>"unlike", 'amount' => DB::table('posts')->where('p_id', '=', $id)->value('likes')];
+        }else{
+            DB::table('user-like')->insert([ 'post_like_id' => $id, 'user_like_id' => Session::get('user')[0]->id]);
+            DB::table('posts')->where('p_id', '=', $id)->update(['likes' => DB::raw('likes + 1')]);
+            return ['status' =>"like", 'amount' => DB::table('posts')->where('p_id', '=', $id)->value('likes')];
+        }
+    }
 }

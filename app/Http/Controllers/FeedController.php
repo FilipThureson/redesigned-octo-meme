@@ -20,10 +20,26 @@ class FeedController extends Controller
         }
         $posts = DB::table('posts')
         ->join('users', 'users.id', '=', 'posts.user_id')
-        ->whereIn('user_id',  $arr)
+        ->whereIn('posts.user_id',  $arr)
         ->orderByDesc('uploaded_at')
         ->get();
-        return $posts;
-        //return Session::get('user')[0];
+        $returnVal = [];
+        foreach($posts as $post){
+
+            $likes = DB::table('user-like')
+            ->where('post_like_id', "=" ,  $post->p_id )
+            ->where('user_like_id', "=" ,Session::get('user')[0]->id)
+            ->get();
+
+            if(count($likes) == 1){
+                $isLiked = true;
+            }else{
+                $isLiked = false;
+            }
+            array_push($returnVal, ['post'=>$post, 'isLiked' => $isLiked]);
+
+        }
+
+        return $returnVal;
     }
 }
