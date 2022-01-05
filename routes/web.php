@@ -22,6 +22,8 @@ Route::middleware([Isloggedin::class])->group(function(){
 
     Route::get('/upload', [ViewController::class, 'upload']);
 
+    Route::get('/profile/{id}', [ViewController::class, 'profile']);
+
 });
 
 Route::middleware([IsNotloggedin::class])->group(function(){

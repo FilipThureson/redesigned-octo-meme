@@ -8,6 +8,8 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 #header{
+    z-index: 1;
+    min-height: 110px;
     position: fixed;
     align-items: center;
     background-color: #eeeeee;

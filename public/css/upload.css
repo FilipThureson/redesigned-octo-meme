@@ -1,0 +1,58 @@
+main{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+#wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#img-wrapper {
+    overflow: auto; /* adds scrollbars */
+    max-height: 500px;
+    position: relative;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+
+#img-wrapper > img {
+    height: auto; /* probably looks neater if auto */
+    width: 30vw; /* double width image to show only first quarter */
+    vertical-align: bottom; /* moves image to true text bottom */
+}
+
+#img{
+    display: none;
+    padding: 10px;
+    border-radius: 50px;
+}
+#title{
+    width: 30vw;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+}
+#uploadForm{
+    display: flex;
+    flex-direction: column;
+}
+#imgInp{
+    align-self: center;
+}
+#uploadForm *{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#uploadForm button{
+    border: 1px solid black;
+    background-color: white;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+
+}

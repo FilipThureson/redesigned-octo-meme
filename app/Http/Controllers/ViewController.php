@@ -17,6 +17,10 @@ class ViewController extends Controller
 
     }
 
+    public function profile($id){
+        return view('profile');
+    }
+
     public function upload()
     {
         return view('upload');
