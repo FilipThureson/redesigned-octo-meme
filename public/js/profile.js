@@ -10,6 +10,7 @@ $.ajax({
         document.getElementById('amountOfPosts').innerText = data.amountOfPosts
         document.getElementById('amountOfFollowers').innerText = data.amountOfFollowers
         document.getElementById('amountOfFollowing').innerText = data.amountOfFollowing
+        document.getElementById('pfp').src= '/img/' + data.user[0].profile_pic;
 
         if(data.isFollowing){
             document.getElementById('followBtn').innerText = "Unfollow";

@@ -22,8 +22,9 @@ Route::middleware([Isloggedin::class])->group(function(){
 
     Route::get('/upload', [ViewController::class, 'upload']);
 
-    Route::get('/profile/{id}', [ViewController::class, 'profile']);
+    Route::get('/profile/{id}', [ViewController::class, 'profile'])->where('id', '[0-9]+');
 
+    Route::get('/profile/edit', [ViewController::class, 'edit']);
 });
 
 Route::middleware([IsNotloggedin::class])->group(function(){

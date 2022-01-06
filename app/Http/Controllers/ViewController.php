@@ -25,6 +25,11 @@ class ViewController extends Controller
         return view('upload');
     }
 
+    public function edit()
+    {
+        return view('edit');
+    }
+
     public function login()
     {
         return view("login", ["loginerror" => ""]);

@@ -38,3 +38,5 @@ Route::post('/profile/{id}/follow', [ProfileController::class, 'follow']);
 Route::post('/feed', [FeedController::class, 'index']);
 
 Route::post('/like/{id}', [PostsController::class, 'like']);
+
+Route::post('/edit/pfp', [ProfileController::class, 'edit_pfp']);

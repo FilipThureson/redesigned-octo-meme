@@ -49,4 +49,22 @@ class ProfileController extends Controller
         }
 
     }
+    public function edit_pfp(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = bin2hex(random_bytes(10)). '.' .$request->image->extension();
+
+        $request->image->move(public_path('img'), $imageName);
+
+        DB::table('users')->where('id', Session::get('user')[0]->id)->update([
+            'profile_pic' => $imageName
+        ]);
+
+        $user = DB::table('users')->where('id', Session::get('user')[0]->id)->get();
+        Session::put('user', $user);
+        return back();
+    }
 }

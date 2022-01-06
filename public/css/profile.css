@@ -83,3 +83,14 @@ main{
 .post img:hover {
     -webkit-filter: brightness(75%);
 }
+
+#pfp{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+#edit-link{
+    color: black;
+    text-decoration: none;
+}
