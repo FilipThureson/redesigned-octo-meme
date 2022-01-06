@@ -17,6 +17,7 @@ body{
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid black;
+    overflow-y: hidden;
 }
 #header a{
     text-decoration: none;

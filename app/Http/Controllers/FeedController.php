@@ -42,4 +42,10 @@ class FeedController extends Controller
 
         return $returnVal;
     }
+
+    public function search($query)
+    {
+        $results = DB::table('users')->where('firstname', 'regexp', $query)->orWhere('surname', 'regexp', $query)->get();
+        return $results;
+    }
 }

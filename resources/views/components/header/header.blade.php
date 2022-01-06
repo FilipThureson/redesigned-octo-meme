@@ -45,3 +45,4 @@
         </ul>
     </nav>
 </div>
+<script src="{{ asset('js/header.js') }}"></script>

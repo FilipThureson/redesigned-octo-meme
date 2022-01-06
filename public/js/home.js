@@ -83,3 +83,31 @@ $('body').delegate('.like','click',function(){
     });
 
 });
+
+document.getElementById('search').addEventListener('keyup', ()=>{
+    let search = document.getElementById('search').value;
+    $.ajax({
+        type: 'post',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/api/search/' + search,
+        success: function(data) {
+            document.getElementById('output').innerHTML = "";
+            data.forEach(user => {
+                document.getElementById('output').innerHTML += `
+
+                <div class="result">
+                    <a href="/profile/${user.id}">
+                    <span>
+                        <img src="/img/${user.profile_pic}" alt="">
+                        <p>${user.firstname} ${user.surname}</p>
+                    </span>
+                    </a>
+                </div>
+
+                `;
+            });
+        }
+    });
+});
