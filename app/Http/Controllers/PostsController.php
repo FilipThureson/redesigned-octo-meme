@@ -47,4 +47,11 @@ class PostsController extends Controller
             return ['status' =>"like", 'amount' => DB::table('posts')->where('p_id', '=', $id)->value('likes')];
         }
     }
+
+    public function post($id)
+    {
+        $post = DB::table('posts')->join('users', 'users.id', '=', 'posts.user_id')->where('p_id', '=', $id)->get();
+        $comments = DB::table('comments')->join('users', 'users.id', '=', 'comments.user_id')->where('post_id', '=', $id)->get();
+        return  ['post' => $post, 'comments' => $comments];
+    }
 }

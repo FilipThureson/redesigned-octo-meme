@@ -30,6 +30,11 @@ class ViewController extends Controller
         return view('edit');
     }
 
+    public function post()
+    {
+        return view('post');
+    }
+
     public function login()
     {
         return view("login", ["loginerror" => ""]);

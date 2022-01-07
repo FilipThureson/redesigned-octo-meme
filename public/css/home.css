@@ -61,6 +61,9 @@ main{
     color: black;
     text-decoration: none;
 }
+.feed-pic:hover {
+    -webkit-filter: brightness(75%);
+}
 
 .result img{
     width: 64px;

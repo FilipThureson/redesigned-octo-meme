@@ -19,7 +19,9 @@ $.ajax({
         data.posts.forEach(post => {
             document.getElementById('post-row').innerHTML += `
             <div class="post">
+                <a href="/post/${post.p_id}">
                 <img src="/img/${post.img}" alt="">
+                </a>
             </div>
             `
         });

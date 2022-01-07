@@ -25,6 +25,8 @@ Route::middleware([Isloggedin::class])->group(function(){
     Route::get('/profile/{id}', [ViewController::class, 'profile'])->where('id', '[0-9]+');
 
     Route::get('/profile/edit', [ViewController::class, 'edit']);
+
+    Route::get('/post/{id}', [ViewController::class, 'post'])->where('id', '[0-9]+');
 });
 
 Route::middleware([IsNotloggedin::class])->group(function(){
