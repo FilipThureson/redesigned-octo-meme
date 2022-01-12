@@ -94,3 +94,40 @@ main{
     color: black;
     text-decoration: none;
 }
+
+#followInfo{
+    position: absolute;
+    z-index: 50;
+    top: 30%;
+    left: 50%;
+    width: 30%;
+    min-height: 50px;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 20px;
+    display: none;
+    border: 2px solid black;
+}
+.follow-info-link{
+    text-decoration: none;
+    color: black;
+}
+.follow-info-span{
+    display: flex;
+    align-items: center;
+}
+.follow-info-span *{
+    margin: 5px;
+}
+.follow-info-span img{
+    width: 64px;
+    height: 64px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.follow-user-wrapper{
+    padding: 5px;
+}
+.follow-user-wrapper + .follow-user-wrapper {
+    border-top: 1px solid grey;
+}

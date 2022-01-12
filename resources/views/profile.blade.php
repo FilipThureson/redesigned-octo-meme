@@ -13,19 +13,18 @@
                 <div class="top-row-div" id="profile-pic">
                     <img id="pfp" src="{{ asset('img/blank-profile.png') }}" alt="">
                     <span id="name">
-                        Name Surname
                     </span>
                 </div>
                 <div class="top-row-div followers-column">
-                    <span id="amountOfPosts">50</span>
+                    <span id="amountOfPosts"></span>
                     <span>Posts</span>
                 </div>
-                <div class="top-row-div followers-column">
-                    <span id="amountOfFollowers">50</span>
+                <div id="followers" class="top-row-div followers-column followinfo">
+                    <span id="amountOfFollowers"></span>
                     <span>Followers</span>
                 </div>
-                <div class="top-row-div followers-column">
-                    <span id="amountOfFollowing">50</span>
+                <div id="follows" class="top-row-div followers-column followinfo">
+                    <span id="amountOfFollowing"></span>
                     <span>Follows</span>
                 </div>
             </div>
@@ -40,6 +39,9 @@
             </div>
             <div id="post-row">
             </div>
+        </div>¨
+        <div id="followInfo">
+            <h1>hello</h1>
         </div>
     </main>
 

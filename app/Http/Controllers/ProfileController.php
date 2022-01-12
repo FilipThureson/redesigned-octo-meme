@@ -67,4 +67,23 @@ class ProfileController extends Controller
         Session::put('user', $user);
         return back();
     }
+    public function getFollowers($id)
+    {
+        $followers = DB::table('user-follow')
+        ->join('users', 'users.id', '=', 'user-follow.user_id')
+        ->where('follow_id', '=', $id)
+        ->get();
+
+        return $followers;
+    }
+
+    public function getFollows($id)
+    {
+        $followers = DB::table('user-follow')
+        ->join('users', 'users.id', '=', 'user-follow.follow_id')
+        ->where('user_id', '=', $id)
+        ->get();
+
+        return $followers;
+    }
 }

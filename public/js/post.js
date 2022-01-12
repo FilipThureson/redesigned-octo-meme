@@ -12,6 +12,8 @@ $.ajax({
         document.getElementById('post-img').src = '/img/' + data.post[0].img;
         document.getElementById('name-caption').innerText =  data.post[0].firstname + " " + data.post[0].surname + " ";
         document.getElementById('caption').innerText =  ' ' + data.post[0].caption;
+        document.getElementById('profile-link').href =  '/profile/' + data.post[0].id;
+
 
 
         data.comments.forEach(comment => {

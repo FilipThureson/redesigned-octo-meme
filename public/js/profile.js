@@ -49,3 +49,38 @@ if(followBtn){
         })
     })
 }
+
+$('.followinfo').on('click', function(){
+    let id = this.id
+    $.ajax({
+        type: 'post',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: '/api' + window.location.pathname + '/' +this.id,
+        success: function(data) {
+            console.log(data);
+            let box = document.getElementById('followInfo');
+            if(box.style.display != 'inline'){
+                box.style.display = 'inline';
+            }
+            box.innerHTML = `<h1>${id}</h1>`;
+            data.forEach(user=>{
+                box.innerHTML += `
+                    <div class="follow-user-wrapper">
+                        <a class="follow-info-link" href="/profile/${user.id}">
+                            <span class="follow-info-span">
+                                <img src="/img/${user.profile_pic}">
+                                <p>${user.firstname} ${user.surname}</p>
+                            </span>
+                        </a>
+                    </div>
+                `;
+            });
+        }
+    });
+})
+
+$('main').on('click', function(){
+    document.getElementById('followInfo').style.display = "none";
+});

@@ -44,3 +44,9 @@ Route::post('/edit/pfp', [ProfileController::class, 'edit_pfp']);
 Route::post('/search/{query}', [FeedController::class, 'search']);
 
 Route::post('/post/{id}', [PostsController::class, 'post']);
+
+
+Route::post('/profile/{id}/followers', [ProfileController::class, 'getFollowers']);
+
+Route::post('/profile/{id}/follows', [ProfileController::class, 'getFollows']);
+

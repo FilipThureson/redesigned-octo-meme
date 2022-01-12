@@ -12,7 +12,7 @@
         <div class="post-wrapper">
             <div class="post">
                 <span class="top-row">
-                    <a href="/profile/4">
+                    <a id="profile-link" href="/profile/4">
                         <img id="post-pfp" class="post-pfp" src="{{ asset('img/blank-profile.png') }}">
                         <div>
                             <h4 id="name">Filip Thuresson</h4>
