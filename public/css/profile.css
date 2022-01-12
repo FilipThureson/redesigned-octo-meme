@@ -101,7 +101,7 @@ main{
     top: 30%;
     left: 50%;
     width: 30%;
-    min-height: 50px;
+    max-height: 500px;
     transform: translate(-50%,-50%);
     background-color: white;
     padding: 20px;
